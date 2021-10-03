@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group 'org.example'
+group 'book.example.org'
 version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
 
 repositories {
@@ -26,8 +26,14 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    testImplementation 'junit:junit:4.13.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testAnnotationProcessor('org.projectlombok:lombok')
 }
+
+
 
 test {
     useJUnitPlatform()
